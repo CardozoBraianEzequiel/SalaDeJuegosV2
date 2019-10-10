@@ -1,15 +1,23 @@
-<div class="panel panel-default">
-  <div class="hero-title">
-      <h1 style="font-size:25px">Sala de Juegos</h1>
-      <p>Braian Cardozo</p>
- </div>
- <div class="hero-text a">
-  <a class="btn btn-primary" href="https://github.com/CardozoBraianEzequiel"target="_blank">en GitHub <i class="fa fa-github"></i></a>
-  <a class="btn btn-primary" routerLink="/QuienSoy" >Quien Soy? <i class="fa fa-user"></i></a>
-
- </div>
-  <ul class="nav navbar-nav navbar-right">
-          <li><a routerLink="/Registro"><span class="glyphicon glyphicon-user" ></span>Registrarse</a></li>
-          <li><a routerLink="/Login"><span class="glyphicon glyphicon-log-in"></span> Ingresar</a></li>
-  </ul>
-</div>
+<nav class="panel navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/index.html">Sala de Juegos</a>
+    <button class="navbar-toggler" type="butt on"
+        (click)="toggleNavbar()">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+  <div class="collapse navbar-collapse"
+    [ngClass]="{ 'show': navbarOpen }">
+    <ul class="navbar-nav mr-auto">
+        <li><a class="nav-item nav-link active" routerLink="/QuienSoy" >¿Quien Soy? <i class="fa fa-user"></i></a></li>
+        <li><a class="nav-item nav-link" routerLink="/Registro"><span class="glyphicon glyphicon-user"></span>Registrarse</a></li>
+        <li><a class="nav-item nav-link" routerLink="/Login"><span class="glyphicon glyphicon-log-in"></span> Ingresar</a></li>
+    </ul>
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" (click)="Desloguear()">DESLOGUEAR<i class="fa fa-user"></i></a>
+   
+    </div>
+  </div>
+  </nav> 
+  
+  
+  
