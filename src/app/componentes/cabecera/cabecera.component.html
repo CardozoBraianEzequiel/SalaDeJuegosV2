@@ -1,23 +1,26 @@
-<nav class="panel navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/Principal">Sala de Juegos</a>
-    <button class="navbar-toggler" type="butt on"
-        (click)="toggleNavbar()">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  
-  <div class="collapse navbar-collapse"
-    [ngClass]="{ 'show': navbarOpen }">
-    <ul class="navbar-nav mr-auto">
-        <li><a class="nav-item nav-link active" routerLink="/QuienSoy" >¿Quien Soy? <i class="fa fa-user"></i></a></li>
-        <li><a class="nav-item nav-link" routerLink="/Registro"><span class="glyphicon glyphicon-user"></span>Registrarse</a></li>
-        <li><a class="nav-item nav-link" routerLink="/Login"><span class="glyphicon glyphicon-log-in"></span> Ingresar</a></li>
-    </ul>
-    <div class="navbar-nav">
-        <a class="nav-item nav-link" (click)="deslog()">DESLOGUEAR<i class="fa fa-user"></i></a>
-   
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <a class="navbar-brand" routerLink="/"><strong> Sala de Juegos</strong></a>
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <a class="nav-link text-info" routerLink="/">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-info" routerLink="/QuienSoy" ><i class="fa fa-user"></i> Quien Soy? </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-info " href="https://github.com/CardozoBraianEzequiel"target="_blank"><i class="fa fa-github"></i> GitHub</a>
+        </li>
+      </ul>
+      
+      <div  class="form-inline my-2 my-lg-0">
+          <a *ngIf="!authService.isLoggedIn" class="nav-link text-info" routerLink="/Login">Ingresar</a>
+          <a *ngIf="!authService.isLoggedIn" class="nav-link text-info" routerLink="/Registro">Registrarse</a>
+          <a *ngIf="authService.isLoggedIn" class=" pr-3 text-light" style="border-right:1px solid white;">{{usuarioLogueado.email}}</a>
+          <a *ngIf="authService.isLoggedIn" class="nav-link text-info pl-3" (click)="authService.SignOut()">Cerrar sesion</a>
+      </div>
     </div>
-  </div>
-  </nav> 
-  
-  
-  
+  </nav>

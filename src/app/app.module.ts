@@ -54,6 +54,31 @@ import { AgmCoreModule } from '@agm/core';
 import { InputJugadoresComponent } from './componentes/input-jugadores/input-jugadores.component';
 import { SexoPipe } from './pipes/sexo.pipe';
 
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AuthService } from './servicios/auth/auth.service';
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {MatButtonModule} from '@angular/material/button';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatCardModule} from '@angular/material/card';
+import { TatetiComponent } from './componentes/tateti/tateti.component';
+import { PiedraPapelTijeraComponent } from './componentes/piedra-papel-tijera/piedra-papel-tijera.component';
+import { TituloComponent } from './componentes/titulo/titulo.component';
+import { DbServiceService } from './servicios/db-service.service';
+import { GuardService } from './servicios/guard.service';
+
+var config = {
+  apiKey: "AIzaSyByZWguTP_-JCZ6rN2iNxDSHXRX6qFpIfA",
+    authDomain: "tpsaladejuegos-b2a2e.firebaseapp.com",
+    databaseURL: "https://tpsaladejuegos-b2a2e.firebaseio.com",
+    projectId: "tpsaladejuegos-b2a2e",
+    storageBucket: "",
+    messagingSenderId: "74362303808",
+    appId: "1:74362303808:web:15e3859a73c5f69b0536a5"
+};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,21 +103,31 @@ import { SexoPipe } from './pipes/sexo.pipe';
     MapaDeGoogleComponent,
     JugadoresListadoComponent,
     InputJugadoresComponent,
-    SexoPipe
+    SexoPipe,
+    TatetiComponent,
+    PiedraPapelTijeraComponent,
+    TituloComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RuteandoModule,
     HttpModule,
+    AngularFireModule.initializeApp(config),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    MatButtonModule,
+    MatSnackBarModule,
+    MatCardModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
-    })
+    }),
+    BrowserAnimationsModule
     // NgbModule.forRoot(MiRuteo),
     // importo el ruteo
     // RouterModule.forRoot(MiRuteo)
   ],
-  providers: [ JuegoServiceService, MiHttpService,PaisesService,ArchivosJugadoresService,JugadoresService],
+  providers: [ JuegoServiceService, MiHttpService,PaisesService,ArchivosJugadoresService,JugadoresService, AuthService, AngularFirestore, DbServiceService, GuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-
+import { AuthService } from '../../servicios/auth/auth.service';
 
 @Component({
   selector: 'app-cabecera',
@@ -8,48 +7,17 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./cabecera.component.css']
 })
 export class CabeceraComponent implements OnInit {
-    navbarOpen = false;
-    usuarioLogueado:any;
-    usuarioLOG:boolean = false;
-    usuarioNologeado:boolean = true;
 
+  usuarioLogueado: any;
+  nombre:any;
 
-  constructor(private router: Router) {
-    this.navbarOpen = false;
-    this.usuarioLogueado = JSON.parse(sessionStorage.getItem('Usuarios'));
-    if(this.usuarioLogueado != undefined)
-    {
-      this.usuarioNologeado = false;
-      this.usuarioLOG = true;
-    }
-    else{
-      this.usuarioNologeado = true;
-      this.usuarioLOG = false;
-    }
+  constructor(public  authService:  AuthService) {
 
-   }
+    if (this.authService.isLoggedIn)
+    this.usuarioLogueado = JSON.parse(localStorage.getItem('user'));
+  }
 
   ngOnInit() {
-  }
-
-  toggleNavbar() {
-    this.navbarOpen = !this.navbarOpen;
-  }
-
-
-  deslog()
-  {
-    sessionStorage.setItem('Usuarios', null);
-    this.router.navigateByUrl('/Login'); 
-
-  }
-
-  gPrincipal(){
-    if(this.usuarioLogueado != undefined){
-      this.router.navigateByUrl('/Principal'); 
-      
-    }
-   
   }
 
 }

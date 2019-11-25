@@ -1,77 +1,46 @@
-<app-cabecera></app-cabecera>
+<app-cabecera>  </app-cabecera>
 
-<!-- <app-banner titulo="Bienvenidos" subtitulo="Es hora de jugar... ESTAN LISTOS?"></app-banner> -->
-
-
-<section>
-  <div class="album py-5 bg-light">
-    <div class="container">
-      <nav class="navbar navbar-black bg-light">
-        <h4 class="navbar-text">Menu Principal</h4>
-      </nav>
-      <div class="row">
-        <!-- Card Juegos-->
-        <div class="col-md-4">
-          <div class="card mb-4 box-shadow">
-            <img class="card-img-top img-logo rounded" src="./assets/imagenes/juegos-b.jpg" alt="Juegos" /> 
-            <div class="card-body">
-              <h4 class="card-heading">Juegos</h4>
-              <p class="card-text">
-                Entrá y divertite.
-              </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <a routerLink="/Juegos">
-                    <button class="btn btn-dark btn-block text-uppercase mb-2 rounded-pill shadow-sm">Ingresar</button></a>
-                </div>
-              </div>
-            </div>
+<section class="principal mt-5">
+  <div class="container">
+    <div class="row">
+      
+      <div class="col-md-3"  routerLink="/Juegos">     
+        <div class="card">
+          <img src="./assets/imagenes/games.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Juegos</h5>
+            <p class="card-text">Demostra tus habilidades y competi contra los mejores jugadores.</p>
           </div>
         </div>
-        <!-- Fin de Juegos-->
-
-        <!-- Card Resultados-->
-        <div class="col-md-4">
-          <div class="card mb-4 box-shadow">
-            <img class=" card-img-top img-logo" src="./assets/imagenes/resultados-b.png" alt="Juegos" />
-            <div class="card-body">
-              <h4 class="card-heading">Resultados</h4>
-              <p class="card-text">
-                Tus resultados.
-              </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <a routerLink="/Listado">
-                    <button class="btn btn-dark btn-block text-uppercase mb-2 rounded-pill shadow-sm">Ingresar</button></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Fin de Resultados-->
-
-        <!-- Card Jugadores-->
-        <div class="col-md-4">
-          <div class="card mb-4 box-shadow">
-           <img class="card-img-top img-logo" src="./assets/imagenes/jugadores-b.png" alt="Juegos" />
-            <div class="card-body">
-              <h4 class="card-heading">Jugadores</h4>
-              <p class="card-text">
-                Listado de jugadores
-              </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <a routerLink="/Jugadores">
-                    <button class="btn btn-dark btn-block text-uppercase mb-2 rounded-pill shadow-sm">Ingresar</button></a>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-        <!-- Fin de Jugadores-->
       </div>
+      <div class="col-md-3" routerLink="/Resultados">        
+        <div class="card">
+          <img src="./assets/imagenes/list.jpg" class="card-img-top" alt="./assets/imagenes/conf.jpg">
+          <div class="card-body">
+            <h5 class="card-title">Resultados</h5>
+            <p class="card-text">Listados de los resultados con ordenamiento y busqueda.</p>
+          </div>
+        </div>
+      </div>    
+      <div class="col-md-3" routerLink="/Juegos">        
+        <div class="card">
+          <img src="./assets/imagenes/conf.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Configuracion</h5>
+            <p class="card-text">Ajustes de la aplicacion y los métodos de autentificación.</p>
+          </div>
+        </div>
+      </div>    
+      <div class="col-md-3" routerLink="/Jugadores">        
+        <div class="card">
+          <img  class="card-img-top" src="./assets/imagenes/players.jpg" alt="">
+          <div class="card-body">
+            <h5 class="card-title">Jugadores</h5>
+            <p class="card-text">Listado de los jugadores con su informacion y resultados.</p>
+          </div>
+        </div>
+      </div>
+      
     </div>
   </div>
 </section>
-
